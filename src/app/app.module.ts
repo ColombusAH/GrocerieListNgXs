@@ -1,5 +1,4 @@
 import { MaterialModule } from './shared/material/material.module';
-import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,8 +21,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     MaterialModule,
-    CoreModule,
-    SharedModule
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
