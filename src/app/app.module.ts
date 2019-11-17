@@ -1,3 +1,4 @@
+import { NavComponent } from './shared/nav/nav.component';
 import { MaterialModule } from './shared/material/material.module';
 import { CoreModule } from './core/core.module';
 import { environment } from './../environments/environment';
@@ -10,9 +11,10 @@ import { AppComponent } from './app.component';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
