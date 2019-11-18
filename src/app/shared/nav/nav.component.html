@@ -1,21 +1,23 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+  <mat-sidenav #drawer position="end" class="sidenav" fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>תפריט</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['/home']" routerLinkActive="link-active"
-        [routerLinkActiveOptions]="{exact:true}">This Week</a>
-      <a mat-list-item [routerLink]="['/home']" routerLinkActive="link-active">History</a>
-      <a mat-list-item [routerLink]="['/home']" routerLinkActive="link-active">About</a>
+      <a mat-list-item [routerLink]="['/home']" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact:true}"
+        (click)="drawer.toggle()">השבוע</a>
+      <a mat-list-item [routerLink]="['/home']" routerLinkActive="link-active" (click)="drawer.toggle()">היסטוריה</a>
+      <a mat-list-item [routerLink]="['/home']" routerLinkActive="link-active" (click)="drawer.toggle()">אודות</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="sidenav__navbar--right">
+      <span>!קניות</span>
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        class="toolbar__btn--right" *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>grocerieList</span>
+
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
